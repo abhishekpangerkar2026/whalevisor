@@ -1,0 +1,53 @@
+#!/bin/sh
+# Server status screen, shown on tty1. Refreshes every 5 seconds.
+
+VERSION=$(cat /etc/whalevisor-release 2>/dev/null || echo unknown)
+
+while :; do
+    ip=$(ip -4 addr show 2>/dev/null | awk '/inet / && $2 !~ /^127\./ { split($2, a, "/"); print a[1]; exit }')
+    token=$(cat /var/lib/whalevisor/token 2>/dev/null)
+
+    if [ -e /dev/kvm ]; then
+        kvm="Available"
+    else
+        kvm="NOT AVAILABLE - turn on VT-x or AMD-V in the server firmware"
+    fi
+
+    ch=$(cloud-hypervisor --version 2>/dev/null | head -n 1)
+    [ -n "$ch" ] || ch="Not installed"
+
+    if rc-service whalevisor status >/dev/null 2>&1; then
+        cp="Running"
+    else
+        cp="Not running - see /var/log/whalevisor.log"
+    fi
+
+    cpus=$(grep -c ^processor /proc/cpuinfo)
+    mem=$(awk '/MemTotal/ { printf "%.1f GB", $2 / 1048576 }' /proc/meminfo)
+    up=$(awk '{ s = int($1); printf "%dh %dm", s / 3600, (s % 3600) / 60 }' /proc/uptime)
+
+    printf '\033[2J\033[H'
+    cat <<EOF
+
+   WhaleVisor
+   Version $VERSION  -  live system, nothing is installed on disk
+   ------------------------------------------------------------------
+
+   To manage this server, use the WhaleVisor API from another computer:
+
+       http://${ip:-"(no network address yet)"}:8080/api/v1
+
+   API token:          ${token:-"(not created yet)"}
+
+   Control plane:      $cp
+   Virtualization:     $kvm
+   Cloud Hypervisor:   $ch
+   Processors:         $cpus
+   Memory:             $mem
+   Running for:        $up
+
+   ------------------------------------------------------------------
+   Alt+F2: root shell     Ctrl+Alt+Del: restart
+EOF
+    sleep 5
+done

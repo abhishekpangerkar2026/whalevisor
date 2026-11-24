@@ -1,0 +1,115 @@
+name: Build ISO
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: iso
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  VERSION: 0.1.${{ github.run_number }}
+
+jobs:
+  iso:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Test the control plane
+        id: tests
+        run: |
+          mkdir -p results
+          cd control-plane
+          npm test 2>&1 | tee ../results/tests.log
+
+      - name: Install build and test tools
+        id: tools
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q --no-install-recommends \
+            grub-common grub-pc-bin grub-efi-amd64-bin xorriso mtools \
+            qemu-system-x86 ovmf socat
+          # Let the test VM use hardware acceleration when the runner has it.
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' \
+            | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm || true
+
+      - name: Build the ISO
+        id: build
+        run: |
+          sudo VERSION="$VERSION" bash iso/build.sh 2>&1 | tee results/build.log
+          sudo chown -R "$USER" out
+          cp out/manifest.txt results/
+
+      - name: Boot test (BIOS)
+        id: bios
+        run: bash iso/test-boot.sh out/whalevisor-*.iso bios results
+
+      - name: Boot test (UEFI)
+        id: uefi
+        if: ${{ always() && steps.build.outcome == 'success' }}
+        run: bash iso/test-boot.sh out/whalevisor-*.iso uefi results
+
+      - name: Keep the ISO with this run
+        if: ${{ always() && steps.build.outcome == 'success' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: whalevisor-iso
+          path: out/*.iso
+          retention-days: 14
+
+      - name: Publish the ISO as the latest build
+        id: release
+        if: ${{ success() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete latest-build --cleanup-tag --yes 2>/dev/null || true
+          gh release create latest-build out/*.iso \
+            --target "$GITHUB_SHA" --prerelease \
+            --title "WhaleVisor $VERSION (latest build)" \
+            --notes-file out/manifest.txt
+
+      # The results branch holds the logs and screenshots of the latest run,
+      # so they can be read with plain git.
+      - name: Publish logs and screenshots
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p results
+          {
+            echo "version: $VERSION"
+            echo "commit: $GITHUB_SHA"
+            echo "run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo "finished: $(date -u +%FT%TZ)"
+            echo "control plane tests: ${{ steps.tests.outcome }}"
+            echo "tools: ${{ steps.tools.outcome }}"
+            echo "build: ${{ steps.build.outcome }}"
+            echo "boot test BIOS: ${{ steps.bios.outcome }}"
+            echo "boot test UEFI: ${{ steps.uefi.outcome }}"
+            echo "release: ${{ steps.release.outcome }}"
+          } > results/summary.txt
+          cd results
+          git init -q -b ci-results
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Results for $GITHUB_SHA"
+          git push -q -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" ci-results

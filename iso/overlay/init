@@ -1,0 +1,5 @@
+#!/bin/sh
+# First program the kernel runs. The whole system lives in the initramfs,
+# so there is no disk to find: set up /dev and hand over to init.
+mount -t devtmpfs devtmpfs /dev 2>/dev/null
+exec /sbin/init

@@ -1,0 +1,14 @@
+# WhaleVisor live system
+
+::sysinit:/sbin/openrc sysinit
+::sysinit:/sbin/openrc boot
+::wait:/sbin/openrc default
+
+# tty1 shows the server status screen instead of a login prompt.
+tty1::respawn:/usr/local/bin/whalevisor-status
+# tty2 is a root shell. Live mode only: anyone at the keyboard can
+# already boot their own system, so a password adds nothing here.
+tty2::respawn:/bin/login -f root
+
+::ctrlaltdel:/sbin/reboot
+::shutdown:/sbin/openrc shutdown

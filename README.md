@@ -2,9 +2,16 @@
 
 WhaleVisor is a hypervisor platform from BlueWhale Stack. It uses a small Rust core on KVM and adds an AI layer for VM placement and operations.
 
-This repo holds the planning and design work, exported from claude.ai artifacts.
+This repo holds the code, plus the planning and design work exported from claude.ai artifacts.
 
-## Contents
+## Code
+
+| Folder | What it is |
+| --- | --- |
+| [control-plane](control-plane/README.md) | REST API for servers and VMs, with placement and maintenance mode. Runs on Node.js with a mock hypervisor driver |
+| [iso](iso/README.md) | Builds the bootable WhaleVisor live ISO. GitHub Actions builds and boot-tests it on every push |
+
+## Plans and designs
 
 | Folder | What it is | Source artifact |
 | --- | --- | --- |

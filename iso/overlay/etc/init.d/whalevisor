@@ -1,0 +1,37 @@
+#!/sbin/openrc-run
+
+name="WhaleVisor control plane"
+command="/usr/bin/node"
+# Alpine's Node 22 needs the flag to run TypeScript; newer Node ignores it.
+command_args="--experimental-strip-types --no-warnings /opt/whalevisor/control-plane/src/main.ts"
+command_background=true
+pidfile="/run/whalevisor.pid"
+output_log="/var/log/whalevisor.log"
+error_log="/var/log/whalevisor.log"
+
+depend() {
+    after net
+}
+
+start_pre() {
+    checkpath -d -m 0700 /var/lib/whalevisor
+    if [ ! -s "$WHALEVISOR_TOKEN_FILE" ]; then
+        (umask 077; tr -dc 'a-f0-9' < /dev/urandom | head -c 48 > "$WHALEVISOR_TOKEN_FILE")
+    fi
+}
+
+start_post() {
+    # Report on the console (the serial port when present) once the API
+    # answers. Any HTTP reply counts, including 401 for the missing token.
+    i=0
+    while [ $i -lt 30 ]; do
+        if wget -S -O /dev/null "http://127.0.0.1:${PORT}/api/v1/health" 2>&1 | grep -q 'HTTP/1'; then
+            echo "WHALEVISOR_READY port=${PORT}" > /dev/console
+            return 0
+        fi
+        i=$((i + 1))
+        sleep 1
+    done
+    ewarn "Control plane did not answer within 30 seconds; see /var/log/whalevisor.log"
+    return 0
+}

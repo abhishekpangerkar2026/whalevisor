@@ -1,0 +1,11 @@
+{
+  "color": "white",
+  "h": 64,
+  "kind": "rounded",
+  "size": "body",
+  "text": "CPU (VT-x / AMD-V)",
+  "type": "shape",
+  "w": 179,
+  "x": 24,
+  "y": 664
+}

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WhaleVisor Console virtual machine erp-app-01</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+body{margin:0}
+a{color:#002DA1}a:hover{color:#001F70}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 900px; background: #F6F7F9; color: #14202B; font-family: Inter, system-ui, sans-serif; font-size: 14px; line-height: 1.45">
+<nav aria-label="Main" style="flex: 1 1 220px; box-sizing: border-box; background: #0F1E2E; padding: 24px 16px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 0 12px">
+<img src="/_blob/03f73bfb5d03b2513bb139d7b5f032ae" alt="BlueWhale Stack" style="width: 180px; height: 47px">
+<div style="font-family: 'Space Grotesk', Inter, sans-serif; font-size: 18px; font-weight: 700; color: #FFFFFF">WhaleVisor Console</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<a href="Main.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Dashboard</a>
+<a href="VMs.dc.html" aria-current="page" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; background: #1D3550; color: #FFFFFF; font-weight: 600">Virtual machines</a>
+<a href="Hosts.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Servers</a>
+<a href="Storage.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Storage</a>
+<a href="Networks.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Networks</a>
+<a href="Images.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Images and templates</a>
+<a href="GPUs.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">GPUs</a>
+<a href="Protection.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Snapshots and backup</a>
+<a href="WhaleAI.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Whale AI</a>
+<a href="ImportVMware.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Import from VMware</a>
+<a href="Tenants.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Tenants and users</a>
+<a href="Usage.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Usage and billing</a>
+<a href="Alerts.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Alerts and activity</a>
+<a href="Settings.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Settings</a>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<div><a href="VMs.dc.html">Back to virtual machines</a></div>
+<h1 style="margin: 0; font-family: 'Space Grotesk', Inter, sans-serif; font-size: 28px; font-weight: 700">erp-app-01</h1>
+<div style="color: #56636F">Running on host-02 · Windows Server 2022 · 10.20.2.21 · tenant Finance · sample data</div>
+</div>
+<a href="VMConsole.dc.html" style="display: inline-block; padding: 12px 20px; border-radius: 8px; text-decoration: none; background: {{accent}}; color: #FFFFFF; font-weight: 600">Open console</a>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 12px"><a href="MigrateVM.dc.html" style="display: inline-block; padding: 11px 20px; border-radius: 8px; text-decoration: none; border: 1px solid #8A96A3; color: #14202B; font-weight: 600">Migrate</a><a href="Protection.dc.html" style="display: inline-block; padding: 11px 20px; border-radius: 8px; text-decoration: none; border: 1px solid #8A96A3; color: #14202B; font-weight: 600">Take snapshot</a><button type="button" style="height: 44px; padding: 0 20px; border-radius: 8px; border: 1px solid #8A96A3; background: #FFFFFF; color: #14202B; font: inherit; font-weight: 600">Resize</button><button type="button" style="height: 44px; padding: 0 20px; border-radius: 8px; border: 1px solid #8A96A3; background: #FFFFFF; color: #14202B; font: inherit; font-weight: 600">Clone</button><button type="button" style="height: 44px; padding: 0 20px; border-radius: 8px; border: 1px solid #8A96A3; background: #FFFFFF; color: #14202B; font: inherit; font-weight: 600">Restart</button><button type="button" style="height: 44px; padding: 0 20px; border-radius: 8px; border: 1px solid #8A96A3; background: #FFFFFF; color: #14202B; font: inherit; font-weight: 600">Shut down</button><button type="button" style="height: 44px; padding: 0 24px; border-radius: 8px; border: 0; background: #A32020; color: #FFFFFF; font: inherit; font-weight: 600">Delete</button></div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+<section style="flex: 1 1 340px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Configuration</h2>
+<dl style="margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 8px 16px"><dt style="color: #56636F">Processors</dt><dd style="margin: 0; font-weight: 600">8 vCPU</dd><dt style="color: #56636F">Memory</dt><dd style="margin: 0; font-weight: 600">32 GB</dd><dt style="color: #56636F">Disks</dt><dd style="margin: 0; font-weight: 600">2 disks, 400 GB on san-tier1</dd><dt style="color: #56636F">Network</dt><dd style="margin: 0; font-weight: 600">erp-prod, 10.20.2.21</dd><dt style="color: #56636F">GPU</dt><dd style="margin: 0; font-weight: 600">None</dd><dt style="color: #56636F">Guest tools</dt><dd style="margin: 0; font-weight: 600">Installed, up to date</dd><dt style="color: #56636F">Created from</dt><dd style="margin: 0; font-weight: 600">Template win2022-base</dd></dl>
+<div style="display: flex; flex-wrap: wrap; gap: 16px"><a href="#edit">Edit configuration</a></div>
+</section>
+<section style="flex: 1 1 340px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Protection</h2>
+<dl style="margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 8px 16px"><dt style="color: #56636F">If its server fails</dt><dd style="margin: 0; font-weight: 600">Restarts elsewhere, high priority</dd><dt style="color: #56636F">Kept apart from</dt><dd style="margin: 0; font-weight: 600">erp-app-02</dd><dt style="color: #56636F">Snapshots</dt><dd style="margin: 0; font-weight: 600">Daily, 7 kept</dd><dt style="color: #56636F">Replication</dt><dd style="margin: 0; font-weight: 600">To Pune every 15 minutes</dd><dt style="color: #56636F">Last backup</dt><dd style="margin: 0; font-weight: 600">Last night, successful</dd></dl>
+<div style="display: flex; flex-wrap: wrap; gap: 16px"><a href="Availability.dc.html">Availability rules</a><a href="Protection.dc.html">Snapshots and backup</a></div>
+</section>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+<section style="flex: 1 1 340px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Last 24 hours</h2>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 300px; border-collapse: collapse; text-align: left">
+<thead><tr style="color: #56636F"><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Measure</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Average</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Peak</th></tr></thead>
+<tbody><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">Processor</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">41%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">78%</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">Memory in use</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">46%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">52%</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">Disk response time</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">2 ms</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">9 ms</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">Network</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">120 Mbit/s</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">410 Mbit/s</td></tr></tbody>
+</table></div>
+<div style="background: #EEF4FB; border-radius: 10px; padding: 14px 16px; color: #3F4C59; display: flex; flex-direction: column; gap: 4px"><div style="font-weight: 600">Whale AI suggestion</div><div>This VM has used under half its memory for 30 days. Resizing to 24 GB would free 8 GB for other VMs.</div></div>
+</section>
+<section style="flex: 1 1 340px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Recent activity</h2>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 300px; border-collapse: collapse; text-align: left">
+<thead><tr style="color: #56636F"><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">When</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">What</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">By</th></tr></thead>
+<tbody><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">2 hours ago</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Snapshot taken</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Daily policy</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">Yesterday</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Moved from host-04 to host-02</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Whale AI</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">3 days ago</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Memory changed from 24 GB to 32 GB</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">r.nair</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">12 days ago</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Created from template</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">r.nair</td></tr></tbody>
+</table></div>
+</section>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#002DA1"},"$preview":{"width":1280,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#002DA1' };
+}
+}
+</script>
+</body>
+</html>

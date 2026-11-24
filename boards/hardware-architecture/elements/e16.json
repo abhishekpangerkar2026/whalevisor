@@ -1,0 +1,11 @@
+{
+  "color": "peach",
+  "h": 64,
+  "kind": "rounded",
+  "size": "body",
+  "text": "LLM adapter",
+  "type": "shape",
+  "w": 222,
+  "x": 1200,
+  "y": 312
+}

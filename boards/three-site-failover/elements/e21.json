@@ -1,0 +1,10 @@
+{
+  "color": "blue",
+  "dash": true,
+  "from": "e2",
+  "fromSide": "right",
+  "head": "both",
+  "to": "e3",
+  "toSide": "left",
+  "type": "arrow"
+}

@@ -1,0 +1,11 @@
+{
+  "color": "blue",
+  "h": 64,
+  "kind": "rounded",
+  "size": "body",
+  "text": "vCPU scheduler",
+  "type": "shape",
+  "w": 260,
+  "x": 308,
+  "y": 488
+}

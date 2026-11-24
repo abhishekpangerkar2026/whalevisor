@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WhaleVisor installer finished</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+body{margin:0}
+a{color:#002DA1}a:hover{color:#001F70}
+</style>
+</helmet>
+<div style="width: 1024px; height: 768px; box-sizing: border-box; padding: 40px 48px; background: #0F1E2E; color: #14202B; font-family: Inter, system-ui, sans-serif; font-size: 15px; line-height: 1.45; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; justify-content: space-between; align-items: center; color: #FFFFFF">
+<div style="display: flex; align-items: center; gap: 20px">
+<img src="/_blob/03f73bfb5d03b2513bb139d7b5f032ae" alt="BlueWhale Stack" style="width: 154px; height: 40px">
+<div style="font-family: 'Space Grotesk', Inter, sans-serif; font-size: 22px; font-weight: 700">WhaleVisor Installer</div>
+</div>
+<div style="color: #C9D3DD">Step 5 of 5 · version 1.0</div>
+</div>
+<div style="flex-grow: 1; background: #FFFFFF; border-radius: 12px; padding: 32px; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h1 style="margin: 0; font-family: 'Space Grotesk', Inter, sans-serif; font-size: 28px; font-weight: 700">WhaleVisor is installed on host-01</h1>
+<div style="color: #56636F">Installation took 9 minutes. Remove the installer USB, then restart.</div>
+</div>
+<ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="5">
+<li style="display: flex; justify-content: space-between; gap: 16px; padding-bottom: 10px; border-bottom: 1px solid #E6EAEE">
+<span>{{s.label}}</span>
+<span style="font-weight: 600; color: #17693F">Done</span>
+</li>
+</sc-for>
+</ol>
+<div style="background: #EEF4FB; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-weight: 600">Next: open WhaleVisor Console from any computer on the network</div>
+<div style="font-family: 'Space Grotesk', Inter, sans-serif; font-size: 28px; font-weight: 700">https://10.20.0.21</div>
+<div style="color: #3F4C59">Sign in as admin with the password you set. From there you can add more servers and create your first virtual machine.</div>
+</div>
+<div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center">
+<button type="button" style="height: 44px; padding: 0 20px; border-radius: 8px; border: 1px solid #8A96A3; background: #FFFFFF; color: #14202B; font: inherit; font-weight: 600">View install log</button>
+<a href="Status.dc.html" style="display: inline-block; padding: 12px 24px; border-radius: 8px; text-decoration: none; background: {{accent}}; color: #FFFFFF; font-weight: 600">Restart now</a>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#002DA1"},"$preview":{"width":1024,"height":768}}'>
+class Component extends DCLogic {
+renderVals() {
+return {
+accent: this.props.accent ?? '#002DA1',
+steps: [
+{ label: 'Prepared the mirrored system disks' },
+{ label: 'Installed the WhaleVisor core' },
+{ label: 'Installed the service VM and WhaleVisor Console' },
+{ label: 'Set up the network and a new cluster' },
+{ label: 'Verified the installation' }
+]
+};
+}
+}
+</script>
+</body>
+</html>

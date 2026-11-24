@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WhaleVisor Manager replication</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+body{margin:0}
+a{color:#002DA1}a:hover{color:#001F70}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 900px; background: #F6F7F9; color: #14202B; font-family: Inter, system-ui, sans-serif; font-size: 14px; line-height: 1.45">
+<nav aria-label="Main" style="flex: 1 1 220px; box-sizing: border-box; background: #0F1E2E; padding: 24px 16px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 0 12px">
+<img src="/_blob/03f73bfb5d03b2513bb139d7b5f032ae" alt="BlueWhale Stack" style="width: 180px; height: 47px">
+<div style="font-family: 'Space Grotesk', Inter, sans-serif; font-size: 18px; font-weight: 700; color: #FFFFFF">WhaleVisor Manager</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<a href="Manager.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Sites and clusters</a>
+<a href="Replication.dc.html" aria-current="page" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; background: #1D3550; color: #FFFFFF; font-weight: 600">Replication</a>
+<a href="RecoveryPlan.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Recovery plans</a>
+<a href="#all-vms" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">All virtual machines</a>
+<a href="#alerts" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Alerts</a>
+<a href="#settings" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Settings</a>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h1 style="margin: 0; font-family: 'Space Grotesk', Inter, sans-serif; font-size: 28px; font-weight: 700">Replication</h1>
+<div style="color: #56636F">Copies of virtual machines kept at another site · sample data</div>
+</div>
+<button type="button" style="height: 44px; padding: 0 24px; border-radius: 8px; border: 0; background: {{accent}}; color: #FFFFFF; font: inherit; font-weight: 600">New protection group</button>
+</div>
+<section style="background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Protection groups</h2>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 880px; border-collapse: collapse; text-align: left">
+<thead><tr style="color: #56636F"><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Group</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">From</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">VMs</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Level</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">To</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Last copy</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Status</th></tr></thead>
+<tbody><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">Core banking</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Mumbai</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">18</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Zero loss (synchronous)</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Pune</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Continuous</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">In sync</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">ERP</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Mumbai</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">24</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Continuous</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Pune</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">8 seconds ago</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">In sync</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">Web and intranet</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Mumbai</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">46</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Every 15 minutes</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Chennai</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">6 minutes ago</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">In sync</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">Analytics</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Pune</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">31</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Every hour</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Chennai</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">2 hours ago</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #9A4A06">Behind schedule</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">Test systems</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Chennai</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">22</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Nightly backup only</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Mumbai</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Last night</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Up to date</td></tr></tbody>
+</table></div>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+<section style="flex: 1 1 380px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Links between sites</h2>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 320px; border-collapse: collapse; text-align: left">
+<thead><tr style="color: #56636F"><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Link</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Delay</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">In use</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Status</th></tr></thead>
+<tbody><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">Mumbai to Pune</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">4 ms</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">38%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">Mumbai to Chennai</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">22 ms</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">51%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">Pune to Chennai</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">19 ms</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">87%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #9A4A06">Nearly full</td></tr></tbody>
+</table></div>
+<div style="background: #FFF4E5; border-radius: 10px; padding: 14px 16px; color: #5C3A06; display: flex; flex-direction: column; gap: 4px"><div>The Analytics group is behind because the Pune to Chennai link is nearly full. Whale AI suggests moving its copies to night hours.</div></div>
+</section>
+<section style="flex: 1 1 380px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Protection levels</h2>
+<dl style="margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 8px 16px"><dt style="color: #56636F">Zero loss</dt><dd style="margin: 0; font-weight: 600">Sites under 5 ms apart</dd><dt style="color: #56636F">Continuous</dt><dd style="margin: 0; font-weight: 600">Seconds of data at risk</dd><dt style="color: #56636F">Scheduled</dt><dd style="margin: 0; font-weight: 600">Minutes to hours at risk</dd><dt style="color: #56636F">Backup only</dt><dd style="margin: 0; font-weight: 600">Up to a day at risk</dd></dl>
+<div style="color: #56636F">Service providers can offer these as priced tiers per tenant.</div>
+</section>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#002DA1"},"$preview":{"width":1280,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#002DA1' };
+}
+}
+</script>
+</body>
+</html>

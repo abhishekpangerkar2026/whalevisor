@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WhaleVisor Console settings</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+body{margin:0}
+a{color:#002DA1}a:hover{color:#001F70}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 1000px; background: #F6F7F9; color: #14202B; font-family: Inter, system-ui, sans-serif; font-size: 14px; line-height: 1.45">
+<nav aria-label="Main" style="flex: 1 1 220px; box-sizing: border-box; background: #0F1E2E; padding: 24px 16px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 0 12px">
+<img src="/_blob/03f73bfb5d03b2513bb139d7b5f032ae" alt="BlueWhale Stack" style="width: 180px; height: 47px">
+<div style="font-family: 'Space Grotesk', Inter, sans-serif; font-size: 18px; font-weight: 700; color: #FFFFFF">WhaleVisor Console</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<a href="Main.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Dashboard</a>
+<a href="VMs.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Virtual machines</a>
+<a href="Hosts.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Servers</a>
+<a href="Storage.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Storage</a>
+<a href="Networks.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Networks</a>
+<a href="Images.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Images and templates</a>
+<a href="GPUs.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">GPUs</a>
+<a href="Protection.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Snapshots and backup</a>
+<a href="WhaleAI.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Whale AI</a>
+<a href="ImportVMware.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Import from VMware</a>
+<a href="Tenants.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Tenants and users</a>
+<a href="Usage.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Usage and billing</a>
+<a href="Alerts.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Alerts and activity</a>
+<a href="Settings.dc.html" aria-current="page" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; background: #1D3550; color: #FFFFFF; font-weight: 600">Settings</a>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h1 style="margin: 0; font-family: 'Space Grotesk', Inter, sans-serif; font-size: 28px; font-weight: 700">Settings</h1>
+<div style="color: #56636F">Cluster mumbai-dc1 · sample data</div>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+<section style="flex: 1 1 360px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Updates</h2>
+<dl style="margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 8px 16px"><dt style="color: #56636F">Installed</dt><dd style="margin: 0; font-weight: 600">WhaleVisor 1.0</dd><dt style="color: #56636F">Available</dt><dd style="margin: 0; font-weight: 600">WhaleVisor 1.0.1, security fixes</dd><dt style="color: #56636F">How it is applied</dt><dd style="margin: 0; font-weight: 600">One server at a time, VMs moved first</dd><dt style="color: #56636F">Expected VM downtime</dt><dd style="margin: 0; font-weight: 600">None</dd></dl>
+<div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 12px"><button type="button" style="height: 44px; padding: 0 24px; border-radius: 8px; border: 0; background: {{accent}}; color: #FFFFFF; font: inherit; font-weight: 600">Start rolling update</button><button type="button" style="height: 44px; padding: 0 20px; border-radius: 8px; border: 1px solid #8A96A3; background: #FFFFFF; color: #14202B; font: inherit; font-weight: 600">Read release notes</button></div>
+</section>
+<section style="flex: 1 1 360px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Licence</h2>
+<dl style="margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 8px 16px"><dt style="color: #56636F">Edition</dt><dd style="margin: 0; font-weight: 600">Enterprise</dd><dt style="color: #56636F">Servers licensed</dt><dd style="margin: 0; font-weight: 600">6 of 16 in use</dd><dt style="color: #56636F">Support</dt><dd style="margin: 0; font-weight: 600">24 hours, 7 days</dd><dt style="color: #56636F">Renews</dt><dd style="margin: 0; font-weight: 600">[RENEWAL DATE]</dd></dl>
+<div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 12px"><button type="button" style="height: 44px; padding: 0 20px; border-radius: 8px; border: 1px solid #8A96A3; background: #FFFFFF; color: #14202B; font: inherit; font-weight: 600">Enter a licence key</button></div>
+</section>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+<section style="flex: 1 1 360px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Sign-in and security</h2>
+<dl style="margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 8px 16px"><dt style="color: #56636F">Console certificate</dt><dd style="margin: 0; font-weight: 600">Self-signed</dd><dt style="color: #56636F">Organisation sign-in</dt><dd style="margin: 0; font-weight: 600">Connected</dd><dt style="color: #56636F">Two-step sign-in</dt><dd style="margin: 0; font-weight: 600">Required for everyone</dd><dt style="color: #56636F">Signed out after</dt><dd style="margin: 0; font-weight: 600">30 idle minutes</dd><dt style="color: #56636F">Secure Boot on servers</dt><dd style="margin: 0; font-weight: 600">5 of 6 on</dd></dl>
+<div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 12px"><button type="button" style="height: 44px; padding: 0 20px; border-radius: 8px; border: 1px solid #8A96A3; background: #FFFFFF; color: #14202B; font: inherit; font-weight: 600">Upload a certificate</button><button type="button" style="height: 44px; padding: 0 20px; border-radius: 8px; border: 1px solid #8A96A3; background: #FFFFFF; color: #14202B; font: inherit; font-weight: 600">API tokens</button></div>
+</section>
+<section style="flex: 1 1 360px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Connections</h2>
+<dl style="margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 8px 16px"><dt style="color: #56636F">WhaleVisor Manager</dt><dd style="margin: 0; font-weight: 600">Connected, site Mumbai</dd><dt style="color: #56636F">BlueWhale Stack</dt><dd style="margin: 0; font-weight: 600">Connected</dd><dt style="color: #56636F">Backup product interface</dt><dd style="margin: 0; font-weight: 600">On</dd><dt style="color: #56636F">Alerts sent to</dt><dd style="margin: 0; font-weight: 600">Email and service desk</dd><dt style="color: #56636F">Time source</dt><dd style="margin: 0; font-weight: 600">2 servers, in sync</dd></dl>
+<div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 12px"><button type="button" style="height: 44px; padding: 0 20px; border-radius: 8px; border: 1px solid #8A96A3; background: #FFFFFF; color: #14202B; font: inherit; font-weight: 600">Get a Manager registration code</button></div>
+</section>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+<section style="flex: 1 1 360px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Support</h2>
+<div style="color: #56636F">A support bundle collects logs and settings, with passwords and keys removed, for BlueWhale Stack support.</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 12px"><button type="button" style="height: 44px; padding: 0 20px; border-radius: 8px; border: 1px solid #8A96A3; background: #FFFFFF; color: #14202B; font: inherit; font-weight: 600">Download support bundle</button><button type="button" style="height: 44px; padding: 0 20px; border-radius: 8px; border: 1px solid #8A96A3; background: #FFFFFF; color: #14202B; font: inherit; font-weight: 600">Open a support request</button></div>
+</section>
+<section style="flex: 1 1 360px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Configuration backup</h2>
+<dl style="margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 8px 16px"><dt style="color: #56636F">Last saved</dt><dd style="margin: 0; font-weight: 600">Last night</dd><dt style="color: #56636F">Kept at</dt><dd style="margin: 0; font-weight: 600">backup-nas and the Pune site</dd></dl>
+<div style="color: #56636F">Lets you rebuild the cluster's settings after a total loss.</div>
+</section>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#002DA1"},"$preview":{"width":1280,"height":1000}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#002DA1' };
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WhaleVisor Console GPUs</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+body{margin:0}
+a{color:#002DA1}a:hover{color:#001F70}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 900px; background: #F6F7F9; color: #14202B; font-family: Inter, system-ui, sans-serif; font-size: 14px; line-height: 1.45">
+<nav aria-label="Main" style="flex: 1 1 220px; box-sizing: border-box; background: #0F1E2E; padding: 24px 16px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 0 12px">
+<img src="/_blob/03f73bfb5d03b2513bb139d7b5f032ae" alt="BlueWhale Stack" style="width: 180px; height: 47px">
+<div style="font-family: 'Space Grotesk', Inter, sans-serif; font-size: 18px; font-weight: 700; color: #FFFFFF">WhaleVisor Console</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<a href="Main.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Dashboard</a>
+<a href="VMs.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Virtual machines</a>
+<a href="Hosts.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Servers</a>
+<a href="Storage.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Storage</a>
+<a href="Networks.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Networks</a>
+<a href="Images.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Images and templates</a>
+<a href="GPUs.dc.html" aria-current="page" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; background: #1D3550; color: #FFFFFF; font-weight: 600">GPUs</a>
+<a href="Protection.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Snapshots and backup</a>
+<a href="WhaleAI.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Whale AI</a>
+<a href="ImportVMware.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Import from VMware</a>
+<a href="Tenants.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Tenants and users</a>
+<a href="Usage.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Usage and billing</a>
+<a href="Alerts.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Alerts and activity</a>
+<a href="Settings.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Settings</a>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h1 style="margin: 0; font-family: 'Space Grotesk', Inter, sans-serif; font-size: 28px; font-weight: 700">GPUs</h1>
+<div style="color: #56636F">Cluster mumbai-dc1 · 8 GPUs on 2 servers · sample data</div>
+</div>
+</div>
+<section style="background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 860px; border-collapse: collapse; text-align: left">
+<thead><tr style="color: #56636F"><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">GPU</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Server</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Mode</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Assigned to</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Tenant</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Busy, last 24 h</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Status</th></tr></thead>
+<tbody><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">gpu-01 slot 1</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">gpu-01</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Whole GPU to one VM</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">llm-train-01</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Data Science</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">91%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">gpu-01 slot 2</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">gpu-01</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Whole GPU to one VM</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">llm-train-01</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Data Science</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">89%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">gpu-01 slot 3</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">gpu-01</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Whole GPU to one VM</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">llm-infer-01</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Data Science</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">34%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">gpu-01 slot 4</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">gpu-01</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Whole GPU to one VM</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Free</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">None</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">0%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Ready</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">gpu-02 slot 1</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">gpu-02</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Shared between VMs</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">4 VMs</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Acme</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">63%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">gpu-02 slot 2</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">gpu-02</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Shared between VMs</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">3 VMs</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Acme</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">58%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td></tr></tbody>
+</table></div>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+<section style="flex: 1 1 340px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">GPU hours this month</h2>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 300px; border-collapse: collapse; text-align: left">
+<thead><tr style="color: #56636F"><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Tenant</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">GPU hours</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Share</th></tr></thead>
+<tbody><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">Data Science</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">1,410</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">62%</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">Acme</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">790</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">35%</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">Finance</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">70</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">3%</td></tr></tbody>
+</table></div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px"><a href="Usage.dc.html">Open usage and billing</a></div>
+</section>
+<section style="flex: 1 1 340px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Whale AI on GPUs</h2>
+<div style="background: #FFF4E5; border-radius: 10px; padding: 14px 16px; color: #5C3A06; display: flex; flex-direction: column; gap: 4px"><div>gpu-01 slot 3 is busy only a third of the time. Sharing it between llm-infer-01 and two waiting jobs would clear the queue.</div></div>
+<div style="background: #EEF4FB; border-radius: 10px; padding: 14px 16px; color: #3F4C59; display: flex; flex-direction: column; gap: 4px"><div>A VM that owns a whole GPU cannot move while running; it needs a short shutdown. Sharing one GPU between VMs needs the GPU maker's licensed software on each server.</div></div>
+</section>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#002DA1"},"$preview":{"width":1280,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#002DA1' };
+}
+}
+</script>
+</body>
+</html>

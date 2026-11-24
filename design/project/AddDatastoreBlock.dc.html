@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WhaleVisor Console add an iSCSI datastore</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+body{margin:0}
+a{color:#002DA1}a:hover{color:#001F70}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 1100px; background: #F6F7F9; color: #14202B; font-family: Inter, system-ui, sans-serif; font-size: 14px; line-height: 1.45">
+<nav aria-label="Main" style="flex: 1 1 220px; box-sizing: border-box; background: #0F1E2E; padding: 24px 16px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 0 12px">
+<img src="/_blob/03f73bfb5d03b2513bb139d7b5f032ae" alt="BlueWhale Stack" style="width: 180px; height: 47px">
+<div style="font-family: 'Space Grotesk', Inter, sans-serif; font-size: 18px; font-weight: 700; color: #FFFFFF">WhaleVisor Console</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<a href="Main.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Dashboard</a>
+<a href="VMs.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Virtual machines</a>
+<a href="Hosts.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Servers</a>
+<a href="Storage.dc.html" aria-current="page" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; background: #1D3550; color: #FFFFFF; font-weight: 600">Storage</a>
+<a href="Networks.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Networks</a>
+<a href="Images.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Images and templates</a>
+<a href="GPUs.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">GPUs</a>
+<a href="Protection.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Snapshots and backup</a>
+<a href="WhaleAI.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Whale AI</a>
+<a href="ImportVMware.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Import from VMware</a>
+<a href="Tenants.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Tenants and users</a>
+<a href="Usage.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Usage and billing</a>
+<a href="Alerts.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Alerts and activity</a>
+<a href="Settings.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Settings</a>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<div><a href="AddDatastore.dc.html">Back to datastore type</a></div>
+<h1 style="margin: 0; font-family: 'Space Grotesk', Inter, sans-serif; font-size: 28px; font-weight: 700">Add an iSCSI datastore</h1>
+<div style="color: #56636F">Block storage from an external array · Fibre Channel follows the same steps without the address · sample data</div>
+</div>
+<form style="margin: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="font-weight: 600">1. Give these names to your storage administrator</div>
+<div style="color: #56636F">The array must allow each server to connect. WhaleVisor generates one name per server.</div>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 480px; border-collapse: collapse; text-align: left">
+<thead><tr style="color: #56636F"><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Server</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Connection name (IQN)</th></tr></thead>
+<tbody><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">host-01</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">iqn.2026-11.com.bluewhalestack:mumbai-dc1.host-01</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">host-02</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">iqn.2026-11.com.bluewhalestack:mumbai-dc1.host-02</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">4 more servers</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE"><a href="#copy">Copy all 6 names</a></td></tr></tbody>
+</table></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="font-weight: 600">2. Point WhaleVisor at the array</div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="portal1" style="font-weight: 600">Array address, path A</label>
+<input id="portal1" type="text" value="10.20.9.11" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF">
+</div>
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="portal2" style="font-weight: 600">Array address, path B</label>
+<input id="portal2" type="text" value="10.20.9.12" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF">
+</div>
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="auth" style="font-weight: 600">Sign-in to the array</label>
+<select id="auth" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF"><option>Name and secret (CHAP)</option><option>None</option></select>
+</div>
+</div>
+<div><button type="button" style="height: 44px; padding: 0 20px; border-radius: 8px; border: 1px solid #8A96A3; background: #FFFFFF; color: #14202B; font: inherit; font-weight: 600">Discover volumes</button></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="font-weight: 600">3. Choose the volumes to use</div>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 720px; border-collapse: collapse; text-align: left">
+<thead><tr style="color: #56636F"><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Use</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Volume</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Size</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Paths</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Seen by</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Contents</th></tr></thead>
+<tbody><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600"><input type="checkbox" checked aria-label="Use this volume"></td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">vol-whale-01</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">20 TB</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">2 of 2</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">All 6 servers</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Empty</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600"><input type="checkbox" checked aria-label="Use this volume"></td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">vol-whale-02</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">20 TB</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">2 of 2</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">All 6 servers</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Empty</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600"><input type="checkbox" aria-label="Use this volume"></td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">vol-legacy-esx</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">10 TB</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">2 of 2</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">All 6 servers</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #9A4A06">VMware data found</td></tr></tbody>
+</table></div>
+<div style="background: #FDECEC; border-radius: 10px; padding: 14px 16px; color: #7A1616">Selected volumes will be formatted. vol-legacy-esx holds VMware data, so it is left unselected. Use Import from VMware to bring those VMs across instead.</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="bname" style="font-weight: 600">Datastore name</label>
+<input id="bname" type="text" value="san-tier2" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF">
+</div>
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="bnet" style="font-weight: 600">Storage network</label>
+<select id="bnet" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF"><option>storage (ports 3 and 4)</option><option>management</option></select>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px">
+<a href="Storage.dc.html" style="display: inline-block; padding: 11px 20px; border-radius: 8px; text-decoration: none; border: 1px solid #8A96A3; color: #14202B; font-weight: 600">Cancel</a>
+<button type="button" style="height: 44px; padding: 0 24px; border-radius: 8px; border: 0; background: {{accent}}; color: #FFFFFF; font: inherit; font-weight: 600">Add datastore</button>
+</div>
+</form>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#002DA1"},"$preview":{"width":1280,"height":1100}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#002DA1' };
+}
+}
+</script>
+</body>
+</html>

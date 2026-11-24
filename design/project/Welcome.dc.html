@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Welcome to WhaleVisor</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+body{margin:0}
+a{color:#002DA1}a:hover{color:#001F70}
+</style>
+</helmet>
+<div style="width: 1024px; height: 768px; box-sizing: border-box; padding: 40px 48px; background: #0F1E2E; color: #14202B; font-family: Inter, system-ui, sans-serif; font-size: 15px; line-height: 1.45; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; justify-content: space-between; align-items: center; color: #FFFFFF">
+<div style="display: flex; align-items: center; gap: 20px">
+<img src="/_blob/03f73bfb5d03b2513bb139d7b5f032ae" alt="BlueWhale Stack" style="width: 154px; height: 40px">
+<div style="font-family: 'Space Grotesk', Inter, sans-serif; font-size: 22px; font-weight: 700">WhaleVisor Installer</div>
+</div>
+<div style="color: #C9D3DD">Welcome · version 1.0</div>
+</div>
+<div style="flex-grow: 1; background: #FFFFFF; border-radius: 12px; padding: 32px; display: flex; flex-direction: column; gap: 20px">
+<img src="/_blob/8fbf86fcc49c03ada4a03cb582cb0e5e" alt="BlueWhale Stack" style="width: 260px; height: 68px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h1 style="margin: 0; font-family: 'Space Grotesk', Inter, sans-serif; font-size: 36px; font-weight: 700">Welcome to WhaleVisor</h1>
+<p style="margin: 0; max-width: 760px; font-size: 17px; color: #3F4C59">WhaleVisor turns this server into a host for virtual machines. It runs directly on the hardware, keeps every virtual machine isolated from the others, and is managed from a web browser, with Whale AI to forecast capacity and help you operate it.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+<div style="border: 1px solid #DDE2E8; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 6px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">What you can run</h2>
+<div style="color: #56636F">Linux and Windows Server virtual machines, including GPU workloads.</div>
+</div>
+<div style="border: 1px solid #DDE2E8; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 6px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">What this installer does</h2>
+<div style="color: #56636F">Checks the hardware, installs WhaleVisor on a disk you choose, and sets up the network. About 10 minutes.</div>
+</div>
+<div style="border: 1px solid #DDE2E8; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 6px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">What to have ready</h2>
+<div style="color: #56636F">An IP address for this server, the gateway address, and an administrator password.</div>
+</div>
+</div>
+<div style="color: #56636F">Nothing on this server is changed until you confirm the install disk. Version 1.0 · build 2026.11 · BlueWhale Stack</div>
+<div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center">
+<a href="Boot.dc.html" style="display: inline-block; padding: 11px 20px; border-radius: 8px; text-decoration: none; border: 1px solid #8A96A3; color: #14202B; font-weight: 600">Exit to boot menu</a>
+<a href="Language.dc.html" style="display: inline-block; padding: 12px 32px; border-radius: 8px; text-decoration: none; background: {{accent}}; color: #FFFFFF; font-weight: 600">Next</a>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#002DA1"},"$preview":{"width":1024,"height":768}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#002DA1' };
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "color": "white",
+  "h": 64,
+  "kind": "rounded",
+  "size": "body",
+  "text": "2. Admin confirms failover",
+  "type": "shape",
+  "w": 238,
+  "x": 302,
+  "y": 684
+}

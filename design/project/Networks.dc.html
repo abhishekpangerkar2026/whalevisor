@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WhaleVisor Console networks</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+body{margin:0}
+a{color:#002DA1}a:hover{color:#001F70}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 900px; background: #F6F7F9; color: #14202B; font-family: Inter, system-ui, sans-serif; font-size: 14px; line-height: 1.45">
+<nav aria-label="Main" style="flex: 1 1 220px; box-sizing: border-box; background: #0F1E2E; padding: 24px 16px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 0 12px">
+<img src="/_blob/03f73bfb5d03b2513bb139d7b5f032ae" alt="BlueWhale Stack" style="width: 180px; height: 47px">
+<div style="font-family: 'Space Grotesk', Inter, sans-serif; font-size: 18px; font-weight: 700; color: #FFFFFF">WhaleVisor Console</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<a href="Main.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Dashboard</a>
+<a href="VMs.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Virtual machines</a>
+<a href="Hosts.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Servers</a>
+<a href="Storage.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Storage</a>
+<a href="Networks.dc.html" aria-current="page" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; background: #1D3550; color: #FFFFFF; font-weight: 600">Networks</a>
+<a href="Images.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Images and templates</a>
+<a href="GPUs.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">GPUs</a>
+<a href="Protection.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Snapshots and backup</a>
+<a href="WhaleAI.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Whale AI</a>
+<a href="ImportVMware.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Import from VMware</a>
+<a href="Tenants.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Tenants and users</a>
+<a href="Usage.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Usage and billing</a>
+<a href="Alerts.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Alerts and activity</a>
+<a href="Settings.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Settings</a>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h1 style="margin: 0; font-family: 'Space Grotesk', Inter, sans-serif; font-size: 28px; font-weight: 700">Networks</h1>
+<div style="color: #56636F">Cluster mumbai-dc1 · 5 networks · sample data</div>
+</div>
+<button type="button" style="height: 44px; padding: 0 24px; border-radius: 8px; border: 0; background: {{accent}}; color: #FFFFFF; font: inherit; font-weight: 600">Add network</button>
+</div>
+<section style="background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 820px; border-collapse: collapse; text-align: left">
+<thead><tr style="color: #56636F"><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Network</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Type</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">VLAN</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Addresses</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">VMs</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Tenant</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Status</th></tr></thead>
+<tbody><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">erp-prod</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">VLAN</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">120</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">10.20.2.0/24</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">14</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Finance</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">web-dmz</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">VLAN</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">130</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">10.20.3.0/24</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">22</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Shared</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">ai-lab</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Private overlay</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">None</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">172.16.5.0/24</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">9</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Data Science</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">tenant-acme</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Private overlay</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">None</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">192.168.10.0/24</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">31</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Acme</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">backup-net</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">VLAN</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">190</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">10.20.9.0/24</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">0</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Shared</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td></tr></tbody>
+</table></div>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+<form style="margin: 0; flex: 3 1 460px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">New network</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="n-name" style="font-weight: 600">Name</label>
+<input id="n-name" type="text" value="hr-apps" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF">
+</div>
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="n-type" style="font-weight: 600">Type</label>
+<select id="n-type" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF"><option>Private overlay (no switch changes)</option><option>VLAN on the physical network</option></select>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="n-sub" style="font-weight: 600">Address range</label>
+<input id="n-sub" type="text" value="10.20.6.0/24" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF">
+</div>
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="n-gw" style="font-weight: 600">Gateway</label>
+<input id="n-gw" type="text" value="10.20.6.1" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF">
+</div>
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="n-ten" style="font-weight: 600">Tenant</label>
+<select id="n-ten" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF"><option>HR</option><option>Shared</option></select>
+</div>
+</div>
+<fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-wrap: wrap; gap: 12px 24px">
+<legend style="padding: 0; margin-bottom: 12px; font-weight: 600">Services</legend>
+<label style="display: flex; gap: 8px; align-items: center; min-height: 44px"><input type="checkbox" checked> Hand out addresses automatically (DHCP)</label><label style="display: flex; gap: 8px; align-items: center; min-height: 44px"><input type="checkbox" checked> Firewall: block everything not allowed</label><label style="display: flex; gap: 8px; align-items: center; min-height: 44px"><input type="checkbox"> Reach the internet through a gateway</label>
+</fieldset>
+<div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 12px"><button type="button" style="height: 44px; padding: 0 24px; border-radius: 8px; border: 0; background: {{accent}}; color: #FFFFFF; font: inherit; font-weight: 600">Create network</button></div>
+</form>
+<section style="flex: 2 1 320px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Server ports</h2>
+<div style="color: #56636F">Each kind of traffic uses its own pair of ports, so a busy migration never slows VMs.</div>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 280px; border-collapse: collapse; text-align: left">
+<thead><tr style="color: #56636F"><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Traffic</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Ports</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Status</th></tr></thead>
+<tbody><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">Management</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">1 and 2</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">Virtual machines</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">1 and 2</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">Storage</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">3 and 4</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">Live migration</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">3 and 4</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td></tr></tbody>
+</table></div>
+</section>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#002DA1"},"$preview":{"width":1280,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#002DA1' };
+}
+}
+</script>
+</body>
+</html>

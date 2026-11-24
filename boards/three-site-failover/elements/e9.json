@@ -1,0 +1,11 @@
+{
+  "color": "white",
+  "h": 56,
+  "kind": "rounded",
+  "size": "body",
+  "text": "Production VMs (at most two-thirds full)",
+  "type": "shape",
+  "w": 392,
+  "x": 24,
+  "y": 456
+}

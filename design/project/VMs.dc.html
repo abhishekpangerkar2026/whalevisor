@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WhaleVisor Console virtual machines</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+body{margin:0}
+a{color:#002DA1}a:hover{color:#001F70}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 900px; background: #F6F7F9; color: #14202B; font-family: Inter, system-ui, sans-serif; font-size: 14px; line-height: 1.45">
+<nav aria-label="Main" style="flex: 1 1 220px; box-sizing: border-box; background: #0F1E2E; padding: 24px 16px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 0 12px">
+<img src="/_blob/03f73bfb5d03b2513bb139d7b5f032ae" alt="BlueWhale Stack" style="width: 180px; height: 47px">
+<div style="font-family: 'Space Grotesk', Inter, sans-serif; font-size: 18px; font-weight: 700; color: #FFFFFF">WhaleVisor Console</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<a href="Main.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Dashboard</a>
+<a href="VMs.dc.html" aria-current="page" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; background: #1D3550; color: #FFFFFF; font-weight: 600">Virtual machines</a>
+<a href="Hosts.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Servers</a>
+<a href="Storage.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Storage</a>
+<a href="Networks.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Networks</a>
+<a href="Images.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Images and templates</a>
+<a href="GPUs.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">GPUs</a>
+<a href="Protection.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Snapshots and backup</a>
+<a href="WhaleAI.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Whale AI</a>
+<a href="ImportVMware.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Import from VMware</a>
+<a href="Tenants.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Tenants and users</a>
+<a href="Usage.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Usage and billing</a>
+<a href="Alerts.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Alerts and activity</a>
+<a href="Settings.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Settings</a>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h1 style="margin: 0; font-family: 'Space Grotesk', Inter, sans-serif; font-size: 28px; font-weight: 700">Virtual machines</h1>
+<div style="color: #56636F">142 in mumbai-dc1 · sample data</div>
+</div>
+<a href="CreateVM.dc.html" style="display: inline-block; padding: 12px 20px; border-radius: 8px; text-decoration: none; background: {{accent}}; color: #FFFFFF; font-weight: 600">Create VM</a>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end">
+<div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 6px">
+<label for="search" style="font-weight: 600">Search</label>
+<input id="search" type="search" placeholder="Name, IP address or tenant" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF">
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="status" style="font-weight: 600">Status</label>
+<select id="status" style="height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF">
+<option>All</option>
+<option>Running</option>
+<option>Stopped</option>
+<option>Migrating</option>
+</select>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="host" style="font-weight: 600">Host</label>
+<select id="host" style="height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF">
+<option>All hosts</option>
+<option>host-01</option>
+<option>host-02</option>
+<option>gpu-01</option>
+</select>
+</div>
+</div>
+<section aria-label="Virtual machine list" style="background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 8px 20px 20px">
+<div style="overflow-x: auto">
+<table style="width: 100%; min-width: 820px; border-collapse: collapse; text-align: left">
+<thead>
+<tr style="color: #56636F">
+<th scope="col" style="padding: 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Name</th>
+<th scope="col" style="padding: 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Status</th>
+<th scope="col" style="padding: 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Host</th>
+<th scope="col" style="padding: 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">OS</th>
+<th scope="col" style="padding: 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">vCPU</th>
+<th scope="col" style="padding: 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Memory</th>
+<th scope="col" style="padding: 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">GPU</th>
+<th scope="col" style="padding: 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Actions</th>
+</tr>
+</thead>
+<tbody>
+<sc-for list="{{vms}}" as="v" hint-placeholder-count="8">
+<tr>
+<td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">
+<div style="font-weight: 600"><a href="VMDetail.dc.html">{{v.name}}</a></div>
+<div style="color: #56636F">{{v.ip}}</div>
+</td>
+<td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: {{v.color}}">{{v.status}}</td>
+<td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">{{v.host}}</td>
+<td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">{{v.os}}</td>
+<td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">{{v.cpu}}</td>
+<td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">{{v.mem}}</td>
+<td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">{{v.gpu}}</td>
+<td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">
+<div style="display: flex; gap: 16px">
+<a href="VMConsole.dc.html">Console</a>
+<a href="MigrateVM.dc.html">Migrate</a>
+<a href="Protection.dc.html">Snapshot</a>
+</div>
+</td>
+</tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#002DA1"},"$preview":{"width":1280,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+var run = '#17693F', stop = '#56636F', move = '#9A4A06';
+return {
+accent: this.props.accent ?? '#002DA1',
+vms: [
+{ name: 'db-prod-01', ip: '10.20.1.11', status: 'Running', color: run, host: 'host-01', os: 'Ubuntu 24.04', cpu: 16, mem: '64 GB', gpu: 'None' },
+{ name: 'db-prod-02', ip: '10.20.1.12', status: 'Running', color: run, host: 'host-03', os: 'Ubuntu 24.04', cpu: 16, mem: '64 GB', gpu: 'None' },
+{ name: 'erp-app-01', ip: '10.20.2.21', status: 'Running', color: run, host: 'host-02', os: 'Windows Server 2022', cpu: 8, mem: '32 GB', gpu: 'None' },
+{ name: 'erp-app-02', ip: '10.20.2.22', status: 'Migrating', color: move, host: 'host-04 to host-02', os: 'Windows Server 2022', cpu: 8, mem: '32 GB', gpu: 'None' },
+{ name: 'llm-train-01', ip: '10.20.5.31', status: 'Running', color: run, host: 'gpu-01', os: 'Ubuntu 24.04', cpu: 32, mem: '256 GB', gpu: '4 GPUs' },
+{ name: 'llm-infer-01', ip: '10.20.5.32', status: 'Running', color: run, host: 'gpu-01', os: 'Ubuntu 24.04', cpu: 16, mem: '128 GB', gpu: '1 GPU' },
+{ name: 'web-stage-01', ip: '10.20.3.41', status: 'Stopped', color: stop, host: 'host-05', os: 'Rocky Linux 9', cpu: 4, mem: '8 GB', gpu: 'None' },
+{ name: 'ad-dc-01', ip: '10.20.0.5', status: 'Running', color: run, host: 'host-01', os: 'Windows Server 2022', cpu: 4, mem: '16 GB', gpu: 'None' }
+]
+};
+}
+}
+</script>
+</body>
+</html>

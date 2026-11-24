@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WhaleVisor boot menu</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+body{margin:0}
+a{color:#9CC7F5}a:hover{color:#C7E0FA}
+</style>
+</helmet>
+<div style="width: 1024px; height: 768px; box-sizing: border-box; padding: 64px 96px; background: #0B1622; color: #E6EDF3; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 18px; line-height: 1.5; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<img src="/_blob/03f73bfb5d03b2513bb139d7b5f032ae" alt="BlueWhale Stack" style="width: 230px; height: 60px; margin-bottom: 8px">
+<div style="font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 44px; font-weight: 700; color: #FFFFFF">WhaleVisor</div>
+<div style="color: #B4C0CC">Version 1.0 · build 2026.11 · 64-bit Intel/AMD</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<a href="Welcome.dc.html" aria-current="true" style="display: block; padding: 10px 16px; text-decoration: none; background: #FFFFFF; color: #0B1622; font-weight: 700">Install WhaleVisor</a>
+<button type="button" style="padding: 10px 16px; border: 0; background: none; color: #E6EDF3; font: inherit; text-align: left">Install WhaleVisor (text mode)</button>
+<button type="button" style="padding: 10px 16px; border: 0; background: none; color: #E6EDF3; font: inherit; text-align: left">Try WhaleVisor without installing</button>
+<button type="button" style="padding: 10px 16px; border: 0; background: none; color: #E6EDF3; font: inherit; text-align: left">Test this server's memory and hardware</button>
+<button type="button" style="padding: 10px 16px; border: 0; background: none; color: #E6EDF3; font: inherit; text-align: left">Boot from the existing disk</button>
+</div>
+<div style="color: #B4C0CC">Starting "Install WhaleVisor" in 8 seconds. Press any key to stop the countdown.</div>
+<div style="margin-top: auto; display: flex; justify-content: space-between; gap: 24px; padding-top: 16px; border-top: 1px solid #3A4A5C; color: #B4C0CC; font-size: 16px">
+<div>Up / Down: choose</div>
+<div>Enter: start</div>
+<div>E: edit boot options</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1024,"height":768}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

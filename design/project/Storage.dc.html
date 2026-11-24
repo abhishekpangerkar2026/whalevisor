@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WhaleVisor Console storage</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+body{margin:0}
+a{color:#002DA1}a:hover{color:#001F70}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 900px; background: #F6F7F9; color: #14202B; font-family: Inter, system-ui, sans-serif; font-size: 14px; line-height: 1.45">
+<nav aria-label="Main" style="flex: 1 1 220px; box-sizing: border-box; background: #0F1E2E; padding: 24px 16px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 0 12px">
+<img src="/_blob/03f73bfb5d03b2513bb139d7b5f032ae" alt="BlueWhale Stack" style="width: 180px; height: 47px">
+<div style="font-family: 'Space Grotesk', Inter, sans-serif; font-size: 18px; font-weight: 700; color: #FFFFFF">WhaleVisor Console</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<a href="Main.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Dashboard</a>
+<a href="VMs.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Virtual machines</a>
+<a href="Hosts.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Servers</a>
+<a href="Storage.dc.html" aria-current="page" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; background: #1D3550; color: #FFFFFF; font-weight: 600">Storage</a>
+<a href="Networks.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Networks</a>
+<a href="Images.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Images and templates</a>
+<a href="GPUs.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">GPUs</a>
+<a href="Protection.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Snapshots and backup</a>
+<a href="WhaleAI.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Whale AI</a>
+<a href="ImportVMware.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Import from VMware</a>
+<a href="Tenants.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Tenants and users</a>
+<a href="Usage.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Usage and billing</a>
+<a href="Alerts.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Alerts and activity</a>
+<a href="Settings.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Settings</a>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h1 style="margin: 0; font-family: 'Space Grotesk', Inter, sans-serif; font-size: 28px; font-weight: 700">Storage</h1>
+<div style="color: #56636F">Cluster mumbai-dc1 · 4 datastores · sample data</div>
+</div>
+<a href="AddDatastore.dc.html" style="display: inline-block; padding: 12px 20px; border-radius: 8px; text-decoration: none; background: {{accent}}; color: #FFFFFF; font-weight: 600">Add datastore</a>
+</div>
+<section aria-label="Datastores" style="background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 8px 20px 20px">
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 900px; border-collapse: collapse; text-align: left">
+<thead><tr style="color: #56636F"><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Datastore</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Type</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Where it lives</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Used</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">VMs</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Status</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Actions</th></tr></thead>
+<tbody><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">builtin-pool</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Built-in</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Servers' own NVMe disks</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">128 TB of 240 TB</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">96</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE"><div style="display: flex; gap: 16px"><a href="MigrateVM.dc.html">Move VMs off</a><a href="#expand">Expand</a><a href="#detach">Detach</a></div></td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">san-tier1</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Fibre Channel</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Array at 2 ports per server</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">41 TB of 50 TB</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">31</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #9A4A06">82% full</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE"><div style="display: flex; gap: 16px"><a href="MigrateVM.dc.html">Move VMs off</a><a href="#expand">Expand</a><a href="#detach">Detach</a></div></td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">nas-tier2</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">NFS</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">10.20.8.50:/export/whalevisor</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">12 TB of 60 TB</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">15</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE"><div style="display: flex; gap: 16px"><a href="MigrateVM.dc.html">Move VMs off</a><a href="#expand">Expand</a><a href="#detach">Detach</a></div></td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">backup-nas</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">NFS</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">10.20.8.60:/export/backup</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">22 TB of 80 TB</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">0</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE"><div style="display: flex; gap: 16px"><a href="MigrateVM.dc.html">Move VMs off</a><a href="#expand">Expand</a><a href="#detach">Detach</a></div></td></tr></tbody>
+</table></div>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+<section aria-labelledby="ext-h" style="flex: 1 1 360px; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 id="ext-h" style="margin: 0; font-size: 16px; font-weight: 600">Connecting external storage</h2>
+<ol style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px">
+<li>On the storage array, allow this cluster's servers to connect.</li>
+<li>Choose Add datastore and pick the type: NFS, iSCSI, Fibre Channel or NVMe over network.</li>
+<li>WhaleVisor connects every server, tests the paths and makes the storage available to VMs.</li>
+</ol>
+<div style="color: #56636F">Every server keeps two paths to block storage, so one cable or switch failure does not interrupt VMs.</div>
+</section>
+<section aria-labelledby="ai-h" style="flex: 1 1 360px; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 id="ai-h" style="margin: 0; font-size: 16px; font-weight: 600">Whale AI on storage</h2>
+<div style="background: #FFF4E5; border-radius: 10px; padding: 14px 16px; color: #5C3A06">san-tier1 is predicted to be full in 21 days. Moving 9 low-activity VMs to nas-tier2 would free 11 TB with no downtime.</div>
+<div><a href="MigrateVM.dc.html">Review the suggested moves</a></div>
+</section>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#002DA1"},"$preview":{"width":1280,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#002DA1' };
+}
+}
+</script>
+</body>
+</html>

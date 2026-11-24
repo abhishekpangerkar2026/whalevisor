@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sign in to WhaleVisor Console</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+body{margin:0}
+a{color:#002DA1}a:hover{color:#001F70}
+</style>
+</helmet>
+<div style="min-height: 900px; box-sizing: border-box; padding: 48px 24px; background: #0F1E2E; color: #14202B; font-family: Inter, system-ui, sans-serif; font-size: 15px; line-height: 1.45; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px">
+<form style="margin: 0; box-sizing: border-box; width: 100%; max-width: 440px; background: #FFFFFF; border-radius: 12px; padding: 32px; display: flex; flex-direction: column; gap: 20px">
+<img src="/_blob/8fbf86fcc49c03ada4a03cb582cb0e5e" alt="BlueWhale Stack" style="width: 230px; height: 60px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h1 style="margin: 0; font-family: 'Space Grotesk', Inter, sans-serif; font-size: 28px; font-weight: 700">Sign in to WhaleVisor</h1>
+<div style="color: #56636F">Cluster mumbai-dc1 · 10.20.0.21</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="user" style="font-weight: 600">User name</label>
+<input id="user" type="text" value="admin" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF">
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="pass" style="font-weight: 600">Password</label>
+<input id="pass" type="password" value="samplepassword" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF">
+</div>
+</div>
+<a href="Main.dc.html" style="display: block; text-align: center; padding: 12px 20px; border-radius: 8px; text-decoration: none; background: {{accent}}; color: #FFFFFF; font-weight: 600">Sign in</a>
+<a href="Main.dc.html" style="display: block; text-align: center; padding: 11px 20px; border-radius: 8px; text-decoration: none; border: 1px solid #8A96A3; color: #14202B; font-weight: 600">Sign in with your organisation account</a>
+<div style="color: #56636F">A code from your authenticator app is asked for next. <a href="#forgot">Forgot your password?</a></div>
+</form>
+<div style="max-width: 440px; color: #C9D3DD; text-align: center">Version 1.0 · If your browser warned about the certificate, an administrator can upload your organisation's own in Settings.</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#002DA1"},"$preview":{"width":1280,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#002DA1' };
+}
+}
+</script>
+</body>
+</html>

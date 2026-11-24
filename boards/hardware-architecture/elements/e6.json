@@ -1,0 +1,7 @@
+{
+  "size": "large",
+  "text": "A small Rust core; everything else lives in VMs.",
+  "type": "text",
+  "x": 0,
+  "y": 80
+}

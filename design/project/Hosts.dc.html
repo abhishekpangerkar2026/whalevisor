@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WhaleVisor Console servers</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+body{margin:0}
+a{color:#002DA1}a:hover{color:#001F70}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 900px; background: #F6F7F9; color: #14202B; font-family: Inter, system-ui, sans-serif; font-size: 14px; line-height: 1.45">
+<nav aria-label="Main" style="flex: 1 1 220px; box-sizing: border-box; background: #0F1E2E; padding: 24px 16px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 0 12px">
+<img src="/_blob/03f73bfb5d03b2513bb139d7b5f032ae" alt="BlueWhale Stack" style="width: 180px; height: 47px">
+<div style="font-family: 'Space Grotesk', Inter, sans-serif; font-size: 18px; font-weight: 700; color: #FFFFFF">WhaleVisor Console</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<a href="Main.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Dashboard</a>
+<a href="VMs.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Virtual machines</a>
+<a href="Hosts.dc.html" aria-current="page" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; background: #1D3550; color: #FFFFFF; font-weight: 600">Servers</a>
+<a href="Storage.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Storage</a>
+<a href="Networks.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Networks</a>
+<a href="Images.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Images and templates</a>
+<a href="GPUs.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">GPUs</a>
+<a href="Protection.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Snapshots and backup</a>
+<a href="WhaleAI.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Whale AI</a>
+<a href="ImportVMware.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Import from VMware</a>
+<a href="Tenants.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Tenants and users</a>
+<a href="Usage.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Usage and billing</a>
+<a href="Alerts.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Alerts and activity</a>
+<a href="Settings.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Settings</a>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h1 style="margin: 0; font-family: 'Space Grotesk', Inter, sans-serif; font-size: 28px; font-weight: 700">Servers</h1>
+<div style="color: #56636F">Cluster mumbai-dc1 · 6 servers · certified for up to 16 · sample data</div>
+</div>
+<a href="AddServer.dc.html" style="display: inline-block; padding: 12px 20px; border-radius: 8px; text-decoration: none; background: {{accent}}; color: #FFFFFF; font-weight: 600">Add server</a>
+</div>
+<section aria-label="Server list" style="background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 8px 20px 20px">
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 720px; border-collapse: collapse; text-align: left">
+<thead><tr style="color: #56636F"><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Server</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Status</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">CPU</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Memory</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">VMs</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Actions</th></tr></thead>
+<tbody><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">host-01</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">58%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">71%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">26</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE"><div style="display: flex; gap: 16px"><a href="Availability.dc.html">Maintenance mode</a><a href="#remove">Remove</a></div></td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">host-02</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">44%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">52%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">22</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE"><div style="display: flex; gap: 16px"><a href="Availability.dc.html">Maintenance mode</a><a href="#remove">Remove</a></div></td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">host-03</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">73%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">80%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">28</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE"><div style="display: flex; gap: 16px"><a href="Availability.dc.html">Maintenance mode</a><a href="#remove">Remove</a></div></td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">host-04</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #9A4A06">Needs attention</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">62%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">66%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">19</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE"><div style="display: flex; gap: 16px"><a href="Availability.dc.html">Maintenance mode</a><a href="#remove">Remove</a></div></td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">host-05</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">67%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">59%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">25</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE"><div style="display: flex; gap: 16px"><a href="Availability.dc.html">Maintenance mode</a><a href="#remove">Remove</a></div></td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">gpu-01</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Healthy</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">61%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">74%</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">22</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE"><div style="display: flex; gap: 16px"><a href="Availability.dc.html">Maintenance mode</a><a href="#remove">Remove</a></div></td></tr></tbody>
+</table></div>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+<form style="flex: 1 1 360px; margin: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 10px">
+<legend style="padding: 0; margin-bottom: 12px; font-size: 16px; font-weight: 600">Load balancing</legend>
+<label style="display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border: 2px solid {{accent}}; border-radius: 10px">
+<input type="radio" name="bal" value="auto" checked style="margin-top: 3px">
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Automatic</span><span style="color: #56636F">Whale AI moves VMs by itself and logs why</span></span>
+</label>
+<label style="display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border: 1px solid #8A96A3; border-radius: 10px">
+<input type="radio" name="bal" value="suggest" style="margin-top: 3px">
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Suggest only</span><span style="color: #56636F">Whale AI proposes moves, you approve each one</span></span>
+</label>
+<label style="display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border: 1px solid #8A96A3; border-radius: 10px">
+<input type="radio" name="bal" value="off" style="margin-top: 3px">
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Off</span><span style="color: #56636F">VMs stay where you put them</span></span>
+</label>
+</fieldset>
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="bal-limit" style="font-weight: 600">Act when a server is predicted to pass</label>
+<select id="bal-limit" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF"><option>80% CPU or memory</option><option>70% CPU or memory</option><option>90% CPU or memory</option></select>
+</div>
+<div><button type="button" style="height: 44px; padding: 0 20px; border-radius: 8px; border: 1px solid #8A96A3; background: #FFFFFF; color: #14202B; font: inherit; font-weight: 600">Balance now</button></div>
+</form>
+<section aria-labelledby="bal-h" style="flex: 1 1 360px; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 id="bal-h" style="margin: 0; font-size: 16px; font-weight: 600">Balance today</h2>
+<dl style="margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 8px 16px">
+<dt style="color: #56636F">Cluster balance</dt><dd style="margin: 0; font-weight: 600; color: #17693F">Good</dd>
+<dt style="color: #56636F">VMs moved in the last 24 hours</dt><dd style="margin: 0; font-weight: 600">3</dd>
+<dt style="color: #56636F">Spare capacity if one server fails</dt><dd style="margin: 0; font-weight: 600; color: #17693F">Enough</dd>
+</dl>
+<div style="background: #EEF4FB; border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
+<div style="font-weight: 600">Last move: db-test-03, host-03 to host-02</div>
+<div style="color: #3F4C59">2 hours ago. host-03 was predicted to pass 85% memory this evening.</div>
+</div>
+<div style="background: #FFF4E5; border-radius: 10px; padding: 14px 16px; color: #5C3A06">host-04 shows rising disk errors. Whale AI suggests maintenance mode, which moves its 19 VMs to other servers first.</div>
+</section>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#002DA1"},"$preview":{"width":1280,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#002DA1' };
+}
+}
+</script>
+</body>
+</html>

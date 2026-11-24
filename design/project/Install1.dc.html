@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WhaleVisor installer hardware check</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+body{margin:0}
+a{color:#002DA1}a:hover{color:#001F70}
+</style>
+</helmet>
+<div style="width: 1024px; height: 768px; box-sizing: border-box; padding: 40px 48px; background: #0F1E2E; color: #14202B; font-family: Inter, system-ui, sans-serif; font-size: 15px; line-height: 1.45; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; justify-content: space-between; align-items: center; color: #FFFFFF">
+<div style="display: flex; align-items: center; gap: 20px">
+<img src="/_blob/03f73bfb5d03b2513bb139d7b5f032ae" alt="BlueWhale Stack" style="width: 154px; height: 40px">
+<div style="font-family: 'Space Grotesk', Inter, sans-serif; font-size: 22px; font-weight: 700">WhaleVisor Installer</div>
+</div>
+<div style="color: #C9D3DD">Step 1 of 5 · version 1.0</div>
+</div>
+<div style="flex-grow: 1; background: #FFFFFF; border-radius: 12px; padding: 32px; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h1 style="margin: 0; font-family: 'Space Grotesk', Inter, sans-serif; font-size: 28px; font-weight: 700">This server is ready for WhaleVisor</h1>
+<div style="color: #56636F">The installer checked the hardware. Nothing on the disks has been changed yet.</div>
+</div>
+<table style="width: 100%; border-collapse: collapse; text-align: left">
+<thead>
+<tr style="color: #56636F">
+<th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Component</th>
+<th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Found</th>
+<th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Result</th>
+</tr>
+</thead>
+<tbody>
+<sc-for list="{{checks}}" as="c" hint-placeholder-count="7">
+<tr>
+<td style="padding: 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">{{c.part}}</td>
+<td style="padding: 12px; border-bottom: 1px solid #E6EAEE">{{c.found}}</td>
+<td style="padding: 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: {{c.color}}">{{c.result}}</td>
+</tr>
+</sc-for>
+</tbody>
+</table>
+<div style="background: #FFF4E5; border-radius: 10px; padding: 14px 16px; color: #5C3A06">Secure Boot is off. WhaleVisor will install and run, but turn it on in the server firmware before production use.</div>
+<div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center">
+<a href="Licence.dc.html" style="display: inline-block; padding: 11px 20px; border-radius: 8px; text-decoration: none; border: 1px solid #8A96A3; color: #14202B; font-weight: 600">Back</a>
+<a href="Install2.dc.html" style="display: inline-block; padding: 12px 24px; border-radius: 8px; text-decoration: none; background: {{accent}}; color: #FFFFFF; font-weight: 600">Next: choose disk</a>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#002DA1"},"$preview":{"width":1024,"height":768}}'>
+class Component extends DCLogic {
+renderVals() {
+var ok = '#17693F', warn = '#9A4A06';
+return {
+accent: this.props.accent ?? '#002DA1',
+checks: [
+{ part: 'Processor', found: '2 × 32-core, virtualization enabled', result: 'Ready', color: ok },
+{ part: 'Memory', found: '512 GB', result: 'Ready', color: ok },
+{ part: 'Disks', found: '2 × 480 GB SSD, 6 × 3.8 TB NVMe', result: 'Ready', color: ok },
+{ part: 'Network', found: '4 × 25 GbE ports, 2 connected', result: 'Ready', color: ok },
+{ part: 'GPU', found: '2 detected', result: 'Ready', color: ok },
+{ part: 'Security chip', found: 'TPM 2.0', result: 'Ready', color: ok },
+{ part: 'Secure Boot', found: 'Turned off in firmware', result: 'Warning', color: warn }
+]
+};
+}
+}
+</script>
+</body>
+</html>

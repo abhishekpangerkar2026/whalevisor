@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WhaleVisor Console images and templates</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+body{margin:0}
+a{color:#002DA1}a:hover{color:#001F70}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 900px; background: #F6F7F9; color: #14202B; font-family: Inter, system-ui, sans-serif; font-size: 14px; line-height: 1.45">
+<nav aria-label="Main" style="flex: 1 1 220px; box-sizing: border-box; background: #0F1E2E; padding: 24px 16px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 0 12px">
+<img src="/_blob/03f73bfb5d03b2513bb139d7b5f032ae" alt="BlueWhale Stack" style="width: 180px; height: 47px">
+<div style="font-family: 'Space Grotesk', Inter, sans-serif; font-size: 18px; font-weight: 700; color: #FFFFFF">WhaleVisor Console</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<a href="Main.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Dashboard</a>
+<a href="VMs.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Virtual machines</a>
+<a href="Hosts.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Servers</a>
+<a href="Storage.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Storage</a>
+<a href="Networks.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Networks</a>
+<a href="Images.dc.html" aria-current="page" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; background: #1D3550; color: #FFFFFF; font-weight: 600">Images and templates</a>
+<a href="GPUs.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">GPUs</a>
+<a href="Protection.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Snapshots and backup</a>
+<a href="WhaleAI.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Whale AI</a>
+<a href="ImportVMware.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Import from VMware</a>
+<a href="Tenants.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Tenants and users</a>
+<a href="Usage.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Usage and billing</a>
+<a href="Alerts.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Alerts and activity</a>
+<a href="Settings.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Settings</a>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h1 style="margin: 0; font-family: 'Space Grotesk', Inter, sans-serif; font-size: 28px; font-weight: 700">Images and templates</h1>
+<div style="color: #56636F">What new virtual machines are built from · sample data</div>
+</div>
+<button type="button" style="height: 44px; padding: 0 24px; border-radius: 8px; border: 0; background: {{accent}}; color: #FFFFFF; font: inherit; font-weight: 600">Upload an image</button>
+</div>
+<section style="background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Templates</h2>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 780px; border-collapse: collapse; text-align: left">
+<thead><tr style="color: #56636F"><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Template</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Operating system</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Size</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Stored on</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Updated</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Actions</th></tr></thead>
+<tbody><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">win2022-base</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Windows Server 2022</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">42 GB</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">builtin-pool</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">3 days ago</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE"><div style="display: flex; flex-wrap: wrap; gap: 16px"><a href="CreateVM.dc.html">Create VM</a><a href="#edit">Edit</a></div></td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">ubuntu-2404-base</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Ubuntu 24.04</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">6 GB</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">builtin-pool</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">8 days ago</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE"><div style="display: flex; flex-wrap: wrap; gap: 16px"><a href="CreateVM.dc.html">Create VM</a><a href="#edit">Edit</a></div></td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">rocky9-base</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Rocky Linux 9</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">5 GB</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">builtin-pool</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">20 days ago</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE"><div style="display: flex; flex-wrap: wrap; gap: 16px"><a href="CreateVM.dc.html">Create VM</a><a href="#edit">Edit</a></div></td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">ubuntu-gpu-ml</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Ubuntu 24.04 with GPU drivers</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">18 GB</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">builtin-pool</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">5 days ago</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE"><div style="display: flex; flex-wrap: wrap; gap: 16px"><a href="CreateVM.dc.html">Create VM</a><a href="#edit">Edit</a></div></td></tr></tbody>
+</table></div>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+<section style="flex: 1 1 360px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Installation images</h2>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 320px; border-collapse: collapse; text-align: left">
+<thead><tr style="color: #56636F"><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Image</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Size</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Stored on</th></tr></thead>
+<tbody><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">Windows Server 2022 installer</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">5.4 GB</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">nas-tier2</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">Ubuntu 24.04 server installer</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">2.6 GB</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">nas-tier2</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">WhaleVisor guest tools</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">0.3 GB</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">nas-tier2</td></tr></tbody>
+</table></div>
+</section>
+<section style="flex: 1 1 360px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Good to know</h2>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px"><li>Turn any stopped VM into a template from its page.</li><li>Guest tools give Windows its fast disk and network drivers, clean shutdown and accurate time.</li><li>Templates can be shared with every tenant or kept private to one.</li></ul>
+</section>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#002DA1"},"$preview":{"width":1280,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#002DA1' };
+}
+}
+</script>
+</body>
+</html>

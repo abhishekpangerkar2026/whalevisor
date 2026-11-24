@@ -1,0 +1,8 @@
+{
+  "from": "e3",
+  "fromSide": "bottom",
+  "head": "both",
+  "to": "e4",
+  "toSide": "top",
+  "type": "arrow"
+}

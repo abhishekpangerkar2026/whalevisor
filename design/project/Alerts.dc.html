@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WhaleVisor Console alerts and activity</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+body{margin:0}
+a{color:#002DA1}a:hover{color:#001F70}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 1000px; background: #F6F7F9; color: #14202B; font-family: Inter, system-ui, sans-serif; font-size: 14px; line-height: 1.45">
+<nav aria-label="Main" style="flex: 1 1 220px; box-sizing: border-box; background: #0F1E2E; padding: 24px 16px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 0 12px">
+<img src="/_blob/03f73bfb5d03b2513bb139d7b5f032ae" alt="BlueWhale Stack" style="width: 180px; height: 47px">
+<div style="font-family: 'Space Grotesk', Inter, sans-serif; font-size: 18px; font-weight: 700; color: #FFFFFF">WhaleVisor Console</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<a href="Main.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Dashboard</a>
+<a href="VMs.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Virtual machines</a>
+<a href="Hosts.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Servers</a>
+<a href="Storage.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Storage</a>
+<a href="Networks.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Networks</a>
+<a href="Images.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Images and templates</a>
+<a href="GPUs.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">GPUs</a>
+<a href="Protection.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Snapshots and backup</a>
+<a href="WhaleAI.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Whale AI</a>
+<a href="ImportVMware.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Import from VMware</a>
+<a href="Tenants.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Tenants and users</a>
+<a href="Usage.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Usage and billing</a>
+<a href="Alerts.dc.html" aria-current="page" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; background: #1D3550; color: #FFFFFF; font-weight: 600">Alerts and activity</a>
+<a href="Settings.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Settings</a>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h1 style="margin: 0; font-family: 'Space Grotesk', Inter, sans-serif; font-size: 28px; font-weight: 700">Alerts and activity</h1>
+<div style="color: #56636F">What needs attention, and a record of every change · sample data</div>
+</div>
+<button type="button" style="height: 44px; padding: 0 20px; border-radius: 8px; border: 1px solid #8A96A3; background: #FFFFFF; color: #14202B; font: inherit; font-weight: 600">Notification settings</button>
+</div>
+<section style="background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Open alerts</h2>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 820px; border-collapse: collapse; text-align: left">
+<thead><tr style="color: #56636F"><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Severity</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">What</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Where</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Since</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Suggested action</th></tr></thead>
+<tbody><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; font-weight: 600; color: #9A4A06">Warning</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Rising disk errors</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">host-04</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">3 hours ago</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE"><a href="Availability.dc.html">Enter maintenance mode</a></td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; font-weight: 600; color: #9A4A06">Warning</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Datastore 82% full</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">san-tier1</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Yesterday</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE"><a href="Storage.dc.html">Review suggested moves</a></td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; font-weight: 600; color: #56636F">Notice</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Certificate is self-signed</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Console</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Since install</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE"><a href="Settings.dc.html">Upload a certificate</a></td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; font-weight: 600; color: #56636F">Notice</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">8 VMs have no backup policy</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Cluster</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">5 days ago</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE"><a href="Protection.dc.html">Assign a policy</a></td></tr></tbody>
+</table></div>
+</section>
+<section style="background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Activity log</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="l-who" style="font-weight: 600">Who</label>
+<select id="l-who" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF"><option>Everyone</option><option>People only</option><option>Whale AI only</option></select>
+</div>
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="l-what" style="font-weight: 600">What</label>
+<select id="l-what" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF"><option>All changes</option><option>Virtual machines</option><option>Storage</option><option>Sign-ins</option><option>Settings</option></select>
+</div>
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="l-find" style="font-weight: 600">Search</label>
+<input id="l-find" type="search" placeholder="VM, user or server name" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF">
+</div>
+</div>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 820px; border-collapse: collapse; text-align: left">
+<thead><tr style="color: #56636F"><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">When</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Who</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">What</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Result</th></tr></thead>
+<tbody><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">10:42</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Whale AI</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Moved db-test-03 from host-03 to host-02 (host-03 predicted to pass 85% memory)</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Success</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">10:15</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">r.nair</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Created VM erp-app-03 from template win2022-base</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Success</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">09:58</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">a.pangerkar</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Added datastore nas-tier2</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Success</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">09:31</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">s.khan</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Sign-in from 10.20.40.17</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Success</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">09:30</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">unknown</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Sign-in attempt for user root from 10.20.77.3</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #A32020">Failed</td></tr></tbody>
+</table></div>
+<div style="color: #56636F">The log cannot be edited or deleted, and can be sent to your security monitoring system.</div>
+</section>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#002DA1"},"$preview":{"width":1280,"height":1000}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#002DA1' };
+}
+}
+</script>
+</body>
+</html>

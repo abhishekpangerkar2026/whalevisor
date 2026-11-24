@@ -1,0 +1,10 @@
+{
+  "from": "e2",
+  "fromSide": "bottom",
+  "head": "both",
+  "to": [
+    1066,
+    464
+  ],
+  "type": "arrow"
+}

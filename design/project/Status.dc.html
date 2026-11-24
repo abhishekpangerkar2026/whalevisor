@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WhaleVisor server status screen</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+body{margin:0}
+a{color:#9CC7F5}a:hover{color:#C7E0FA}
+</style>
+</helmet>
+<div style="width: 1024px; height: 768px; box-sizing: border-box; padding: 64px 96px; background: #0B1622; color: #E6EDF3; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 18px; line-height: 1.5; display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<img src="/_blob/03f73bfb5d03b2513bb139d7b5f032ae" alt="BlueWhale Stack" style="width: 230px; height: 60px; margin-bottom: 8px">
+<div style="font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 44px; font-weight: 700; color: #FFFFFF">WhaleVisor</div>
+<div style="color: #B4C0CC">Version 1.0 · host-01 · cluster mumbai-dc1</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="color: #B4C0CC">To manage this server, open WhaleVisor Console in a browser:</div>
+<div style="font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 40px; font-weight: 700; color: #FFFFFF">https://10.20.0.21</div>
+</div>
+<dl style="margin: 0; display: grid; grid-template-columns: 240px 1fr; gap: 8px 24px">
+<dt style="color: #B4C0CC">Status</dt>
+<dd style="margin: 0; font-weight: 700; color: #7EE0A8">Running normally</dd>
+<dt style="color: #B4C0CC">Virtual machines</dt>
+<dd style="margin: 0">26 running</dd>
+<dt style="color: #B4C0CC">Processor in use</dt>
+<dd style="margin: 0">58%</dd>
+<dt style="color: #B4C0CC">Memory in use</dt>
+<dd style="margin: 0">71% of 512 GB</dd>
+<dt style="color: #B4C0CC">Alerts</dt>
+<dd style="margin: 0">None</dd>
+<dt style="color: #B4C0CC">Running since</dt>
+<dd style="margin: 0">14 days</dd>
+</dl>
+<div style="margin-top: auto; display: flex; justify-content: space-between; gap: 24px; padding-top: 16px; border-top: 1px solid #3A4A5C; color: #B4C0CC; font-size: 16px">
+<div><a href="SignIn.dc.html">Open the console</a> · F2: maintenance menu</div>
+<div>F5: refresh</div>
+<div>F12: restart or shut down</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1024,"height":768}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WhaleVisor Console import from VMware</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+body{margin:0}
+a{color:#002DA1}a:hover{color:#001F70}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 1180px; background: #F6F7F9; color: #14202B; font-family: Inter, system-ui, sans-serif; font-size: 14px; line-height: 1.45">
+<nav aria-label="Main" style="flex: 1 1 220px; box-sizing: border-box; background: #0F1E2E; padding: 24px 16px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 0 12px">
+<img src="/_blob/03f73bfb5d03b2513bb139d7b5f032ae" alt="BlueWhale Stack" style="width: 180px; height: 47px">
+<div style="font-family: 'Space Grotesk', Inter, sans-serif; font-size: 18px; font-weight: 700; color: #FFFFFF">WhaleVisor Console</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<a href="Main.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Dashboard</a>
+<a href="VMs.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Virtual machines</a>
+<a href="Hosts.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Servers</a>
+<a href="Storage.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Storage</a>
+<a href="Networks.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Networks</a>
+<a href="Images.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Images and templates</a>
+<a href="GPUs.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">GPUs</a>
+<a href="Protection.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Snapshots and backup</a>
+<a href="WhaleAI.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Whale AI</a>
+<a href="ImportVMware.dc.html" aria-current="page" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; background: #1D3550; color: #FFFFFF; font-weight: 600">Import from VMware</a>
+<a href="Tenants.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Tenants and users</a>
+<a href="Usage.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Usage and billing</a>
+<a href="Alerts.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Alerts and activity</a>
+<a href="Settings.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Settings</a>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h1 style="margin: 0; font-family: 'Space Grotesk', Inter, sans-serif; font-size: 28px; font-weight: 700">Import from VMware</h1>
+<div style="color: #56636F">Bring virtual machines across from vSphere, a few at a time · sample data</div>
+</div>
+</div>
+<form style="margin: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">1. Connect to vCenter</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="vc" style="font-weight: 600">vCenter address</label>
+<input id="vc" type="text" value="vcenter.example.internal" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF">
+</div>
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="vcu" style="font-weight: 600">User name</label>
+<input id="vcu" type="text" value="svc-migrate" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF">
+</div>
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="vcp" style="font-weight: 600">Password</label>
+<input id="vcp" type="password" value="samplepassword" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF">
+</div>
+</div>
+<div style="background: #E9F6EE; border-radius: 10px; padding: 14px 16px; color: #124F30; display: flex; flex-direction: column; gap: 4px"><div>Connected. Found 2 clusters and 214 virtual machines. Read-only access is enough until cut-over.</div></div>
+</form>
+<section style="background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">2. Choose virtual machines</h2>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 860px; border-collapse: collapse; text-align: left">
+<thead><tr style="color: #56636F"><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Import</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Virtual machine</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Operating system</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Size</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Readiness</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Note</th></tr></thead>
+<tbody><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600"><input type="checkbox" checked aria-label="Import this VM"></td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">hr-app-01</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Windows Server 2019</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">180 GB</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Ready</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Drivers will be added automatically</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600"><input type="checkbox" checked aria-label="Import this VM"></td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">hr-db-01</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Ubuntu 22.04</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">420 GB</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Ready</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE"></td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600"><input type="checkbox" checked aria-label="Import this VM"></td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">intranet-01</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Rocky Linux 8</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">60 GB</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #17693F">Ready</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE"></td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600"><input type="checkbox" aria-label="Import this VM"></td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">cad-ws-07</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Windows 10</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">240 GB</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #9A4A06">Needs attention</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Uses a shared GPU; plan a GPU server first</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600"><input type="checkbox" aria-label="Import this VM"></td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">legacy-nt</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Windows Server 2003</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">30 GB</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600; color: #A32020">Not supported</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Operating system too old</td></tr></tbody>
+</table></div>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+<form style="margin: 0; flex: 1 1 380px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">3. Map networks and storage</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="m-net" style="font-weight: 600">VMware network HR-VLAN120 becomes</label>
+<select id="m-net" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF"><option>hr-apps</option><option>erp-prod</option></select>
+</div>
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="m-ds" style="font-weight: 600">VMware datastore DS-Tier1 becomes</label>
+<select id="m-ds" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF"><option>builtin-pool</option><option>san-tier1</option></select>
+</div>
+</div>
+</form>
+<form style="margin: 0; flex: 1 1 380px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">4. Choose how to switch</h2>
+<fieldset style="margin: 0; padding: 0; border: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px">
+<legend style="padding: 0; margin-bottom: 12px; font-weight: 600">Method</legend>
+<label style="display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border: 2px solid {{accent}}; border-radius: 10px">
+<input type="radio" name="cut" value="test" checked style="margin-top: 3px">
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Test first</span><span style="color: #56636F">Starts a copy on an isolated network; the original keeps running</span></span>
+</label><label style="display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border: 1px solid #8A96A3; border-radius: 10px">
+<input type="radio" name="cut" value="live" style="margin-top: 3px">
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Switch over</span><span style="color: #56636F">Final sync, short shutdown, start on WhaleVisor</span></span>
+</label>
+</fieldset>
+<dl style="margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 8px 16px"><dt style="color: #56636F">Selected</dt><dd style="margin: 0; font-weight: 600">3 VMs, 660 GB</dd><dt style="color: #56636F">Estimated copy time</dt><dd style="margin: 0; font-weight: 600">About 2 hours</dd><dt style="color: #56636F">Downtime at switch-over</dt><dd style="margin: 0; font-weight: 600">About 5 minutes per VM</dd></dl>
+<div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 12px"><button type="button" style="height: 44px; padding: 0 24px; border-radius: 8px; border: 0; background: {{accent}}; color: #FFFFFF; font: inherit; font-weight: 600">Start test import</button></div>
+</form>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#002DA1"},"$preview":{"width":1280,"height":1180}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#002DA1' };
+}
+}
+</script>
+</body>
+</html>

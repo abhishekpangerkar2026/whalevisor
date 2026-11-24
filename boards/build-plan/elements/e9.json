@@ -1,0 +1,11 @@
+{
+  "color": "white",
+  "h": 64,
+  "kind": "rounded",
+  "size": "body",
+  "text": "GPU passthrough",
+  "type": "shape",
+  "w": 392,
+  "x": 24,
+  "y": 400
+}

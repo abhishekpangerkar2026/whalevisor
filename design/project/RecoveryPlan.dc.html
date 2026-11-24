@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WhaleVisor Manager recovery plan</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+body{margin:0}
+a{color:#002DA1}a:hover{color:#001F70}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 900px; background: #F6F7F9; color: #14202B; font-family: Inter, system-ui, sans-serif; font-size: 14px; line-height: 1.45">
+<nav aria-label="Main" style="flex: 1 1 220px; box-sizing: border-box; background: #0F1E2E; padding: 24px 16px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 0 12px">
+<img src="/_blob/03f73bfb5d03b2513bb139d7b5f032ae" alt="BlueWhale Stack" style="width: 180px; height: 47px">
+<div style="font-family: 'Space Grotesk', Inter, sans-serif; font-size: 18px; font-weight: 700; color: #FFFFFF">WhaleVisor Manager</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<a href="Manager.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Sites and clusters</a>
+<a href="Replication.dc.html" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Replication</a>
+<a href="RecoveryPlan.dc.html" aria-current="page" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; background: #1D3550; color: #FFFFFF; font-weight: 600">Recovery plans</a>
+<a href="#all-vms" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">All virtual machines</a>
+<a href="#alerts" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Alerts</a>
+<a href="#settings" style="display: block; padding: 12px; border-radius: 8px; text-decoration: none; color: #C9D3DD">Settings</a>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<div><a href="Manager.dc.html">Back to sites and clusters</a></div>
+<h1 style="margin: 0; font-family: 'Space Grotesk', Inter, sans-serif; font-size: 28px; font-weight: 700">Recovery plan: Mumbai site lost</h1>
+<div style="color: #56636F">Restarts Mumbai's protected virtual machines at Pune and Chennai · sample data</div>
+</div>
+</div>
+<section style="background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Order of restart</h2>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 760px; border-collapse: collapse; text-align: left">
+<thead><tr style="color: #56636F"><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Step</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Group</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">VMs</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Starts at</th><th scope="col" style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #DDE2E8">Then wait for</th></tr></thead>
+<tbody><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">1</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Directory and DNS</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">4</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Pune</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Sign-in service answering</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">2</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Core banking</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">18</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Pune</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Databases accepting connections</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">3</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">ERP</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">24</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Pune</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Application health check</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">4</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Web and intranet</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">46</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Chennai</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Nothing, start together</td></tr><tr><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE; font-weight: 600">Not restarted</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Test systems</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">22</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">None</td><td style="padding: 14px 12px; border-bottom: 1px solid #E6EAEE">Left off to save capacity</td></tr></tbody>
+</table></div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px"><a href="#edit">Edit the order</a><a href="#net">Network and address mapping</a></div>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+<section style="flex: 1 1 380px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Readiness</h2>
+<dl style="margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 8px 16px"><dt style="color: #56636F">Room at Pune and Chennai</dt><dd style="margin: 0; font-weight: 600">Enough for all 92 VMs</dd><dt style="color: #56636F">Oldest copy</dt><dd style="margin: 0; font-weight: 600">6 minutes old</dd><dt style="color: #56636F">Last rehearsal</dt><dd style="margin: 0; font-weight: 600">12 days ago, passed</dd><dt style="color: #56636F">Expected time to recover</dt><dd style="margin: 0; font-weight: 600">About 25 minutes</dd></dl>
+<div style="background: #E9F6EE; border-radius: 10px; padding: 14px 16px; color: #124F30; display: flex; flex-direction: column; gap: 4px"><div>A rehearsal starts the copies on an isolated network, so production is not touched.</div></div>
+<div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 12px"><button type="button" style="height: 44px; padding: 0 20px; border-radius: 8px; border: 1px solid #8A96A3; background: #FFFFFF; color: #14202B; font: inherit; font-weight: 600">Run a rehearsal</button></div>
+</section>
+<form style="margin: 0; flex: 1 1 380px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Fail over</h2>
+<div style="color: #56636F">Use this only when the Mumbai site is really down. Chennai acts as tie-breaker, so two sites never both run the same VM.</div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="confirm" style="font-weight: 600">Type MUMBAI to confirm</label>
+<input id="confirm" type="text" placeholder="MUMBAI" style="box-sizing: border-box; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #8A96A3; border-radius: 8px; font: inherit; color: #14202B; background: #FFFFFF">
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 12px"><button type="button" style="height: 44px; padding: 0 24px; border-radius: 8px; border: 0; background: #A32020; color: #FFFFFF; font: inherit; font-weight: 600">Fail over now</button><button type="button" style="height: 44px; padding: 0 20px; border-radius: 8px; border: 1px solid #8A96A3; background: #FFFFFF; color: #14202B; font: inherit; font-weight: 600">Plan the return to Mumbai</button></div>
+</form>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#002DA1"},"$preview":{"width":1280,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#002DA1' };
+}
+}
+</script>
+</body>
+</html>

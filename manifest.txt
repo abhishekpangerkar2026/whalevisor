@@ -1,0 +1,7 @@
+WhaleVisor 0.1.2
+Alpine 3.22.8
+Kernel 6.12.119-0-lts
+Node v22.23.5
+Cloud Hypervisor: cloud-hypervisor v55.0
+initramfs 141.6M
+ISO size: 166M

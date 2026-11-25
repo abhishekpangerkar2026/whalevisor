@@ -1,0 +1,10 @@
+version: 0.1.2
+commit: d7913470b7086841562ef28b8ddbd959f5059aa2
+run: https://github.com/abhishekpangerkar2026/whalevisor/actions/runs/45592385593
+finished: 2026-11-25T10:12:56Z
+control plane tests: success
+tools: success
+build: success
+boot test BIOS: success
+boot test UEFI: success
+release: success

@@ -1,0 +1,31 @@
+
+> @whalevisor/control-plane@0.1.0 test
+> node --test test/*.test.ts
+
+✔ health reports the driver (32.892649ms)
+✔ VM lifecycle: create, start, stop, delete (19.87287ms)
+✔ rejects bad input with clear errors (12.499846ms)
+✔ duplicate VM names are refused (5.282794ms)
+✔ placement preview and automatic placement spread a group (7.599348ms)
+✔ migrate moves a VM and keeps its state (7.231164ms)
+✔ a failed migration leaves the VM where it was (9.186753ms)
+✔ a second operation on a busy VM is refused (57.022689ms)
+✔ a failed create is kept as error and can be deleted (4.141293ms)
+✔ maintenance mode moves every VM off, or nothing if they do not fit (125.817452ms)
+✔ host list shows allocations (4.149171ms)
+✔ token is required when configured (2.998182ms)
+✔ state survives a restart when a data file is set (6.351265ms)
+✔ groupOf strips the trailing number (0.989569ms)
+✔ picks the least loaded host (0.530957ms)
+✔ keeps VMs of one group apart even if that host is busier (0.399376ms)
+✔ skips unhealthy, excluded and full hosts (0.228168ms)
+✔ GPU VMs only go where GPUs are free (0.385459ms)
+✔ a migrating VM counts against both hosts (0.162787ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 598.132552

@@ -1,0 +1,5 @@
+host acceleration: kvm
+control plane ready: yes (after about 32s)
+screenshot: saved
+API without token: HTTP 401 (expected 401)
+RESULT: PASS

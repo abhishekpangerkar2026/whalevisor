@@ -9,7 +9,7 @@ This repo holds the code, plus the planning and design work exported from claude
 | Folder | What it is |
 | --- | --- |
 | [control-plane](control-plane/README.md) | REST API for servers and VMs, with placement and maintenance mode. Runs on Node.js with a mock hypervisor driver |
-| [iso](iso/README.md) | Builds the bootable WhaleVisor live ISO. GitHub Actions builds and boot-tests it on every push |
+| [iso](iso/README.md) | Builds the bootable WhaleVisor live ISO. GitHub Actions builds and boot-tests it when the code changes |
 
 ## Plans and designs
 
@@ -31,7 +31,3 @@ Each board folder has a `README.md` summary. Its `elements/` folder holds the ra
 - **Manager:** sites and clusters, adding a cluster, replication and recovery plans.
 
 The screens are written in the claude.ai Design canvas format. Images such as the logo point to `/_blob/...` uploads, so the files render fully only inside the canvas.
-
-## Known gaps
-
-- `design/project/WhaleAI.dc.html` is not here yet. The export failed with a network error.

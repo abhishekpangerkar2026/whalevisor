@@ -15,7 +15,7 @@ Press Alt+F2 on the server for a root shell.
 
 ## Get the ISO
 
-Every push to `main` builds and boot-tests the ISO on GitHub Actions. The newest one that passed is on the repo's Releases page, under **latest-build**.
+Every push to `main` that changes `control-plane/`, `iso/` or the workflow builds and boot-tests the ISO on GitHub Actions. The newest one that passed is on the repo's Releases page, under **latest-build**.
 
 The test boots the ISO in a virtual machine twice, once with BIOS and once with UEFI. Logs and a screenshot of each boot go to the `ci-results` branch.
 

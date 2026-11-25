@@ -3,6 +3,11 @@ name: Build ISO
 on:
   push:
     branches: [main]
+    # Plans, designs and top-level docs don't change the ISO.
+    paths:
+      - 'control-plane/**'
+      - 'iso/**'
+      - '.github/workflows/iso.yml'
   workflow_dispatch:
 
 permissions:
